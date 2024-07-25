@@ -28,7 +28,7 @@
     - install  react in our app--- npm install react
     - npm install react-dom
     - import react and react-dom
-    - "main": "App.js", from package.json
+    - remove "main": "App.js", from package.json
     - npx parcel build index.html (production build)
 
     episode-3
@@ -37,4 +37,29 @@
     - jsx and components
 
     episode -4
-    -
+  /* Components of Our Food-Order App
+ * Header
+ * - Logo
+ * - Nav Items
+ * Body
+ * - Search Bar
+ * - Restaurant-Container
+ *  - Restaurant-Card
+ *    - Img
+ *    - Name of Res, Star Rating, cuisine, delivery time.
+ * Footer
+ * - Copyright
+ * - Links
+ * - Address
+ * - Contact
+ */
+ 
+ episode -5
+ - Named export:  
+ export const component;
+ import { component } from "path";
+
+  -Default export:
+  export default component;
+  import Hcomponent from "path";
+
