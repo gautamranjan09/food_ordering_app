@@ -1,6 +1,4 @@
-## Namaste React Course by Akshay Saini
-
-# _Episode 01 - Inception_
+# _Episode 01 -
 
 ## Coding :
 
@@ -18,7 +16,7 @@
     - `Create nested React Elements`
     - `Use root.render`
 
-    steps- ep-2
+    steps- Ep-2
    - initilize github repo
    - we set the remote of git in github using link, 
    - npm init / npm init -y (initialize `npm`)
@@ -31,12 +29,12 @@
     - remove "main": "App.js", from package.json
     - npx parcel build index.html (production build)
 
-    episode-3
+    Episode-3
     -npm run start/ npm start
     -npm run build
     - jsx and components
 
-    episode -4
+    Episode -4
   /* Components of Our Food-Order App
  * Header
  * - Logo
@@ -54,7 +52,7 @@
  * - Contact
  */
  
- episode -5
+ Episode -5
  - Named export:  
  export const component;
  import { component } from "path";
