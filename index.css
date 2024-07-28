@@ -53,3 +53,61 @@
   background-color: #f0f0f0;
   margin: 5px;
 }
+ .login{
+  cursor: pointer;
+  font-weight: bold;
+  border:none;
+  padding: 15px 32px;
+  border-radius: 2px;
+  font-size: 16px;
+  border-radius: 12px;
+  background-color: #c0c75e;
+  color: white;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+ }
+ .login:hover {
+  background-color: #db8d18; /* Darker blue background on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 6px 6px rgba(0, 0, 0, 0.2); /* Add a shadow on hover */
+  transform: scale(1.05);
+}
+.login:active {
+  background-color: #c0c75e; /* Even darker green when clicked */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adjust shadow */
+  transform: translateY(2px); /* Move the button a bit down */
+  
+}
+
+/* Styling for the filter container */
+.filter {
+  display: flex;
+  
+  margin: 20px 0; /* Add some space around the filter */
+}
+
+
+/* Basic styling for the filter button */
+.filter-btn {
+  background-color: #6c757d; /* Gray background */
+  border: none; /* Remove default border */
+  color: white; /* White text */
+  padding: 10px 20px; /* Some padding */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer/hand icon on hover */
+  border-radius: 8px; /* Rounded corners */
+  margin: 0px 10px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+/* Add a hover effect for the filter button */
+.filter-btn:hover {
+  background-color: #5a6268; /* Darker gray background on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow on hover */
+  transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+/* Optional: Add an active effect when the button is clicked */
+.filter-btn:active {
+  background-color: #545b62; /* Even darker gray when clicked */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adjust shadow */
+  transform: scale(1); /* Return to original size */
+}
