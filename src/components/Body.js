@@ -4,8 +4,8 @@ import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
-  const[filteredRestaurant,setFilteredRestaurant]=useState([]);
-  const [searchText, setSearchText] = useState([]);
+  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -24,10 +24,13 @@ const Body = () => {
     const arr1 =
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants ?? [];
-    //const restaurantList = [...arr, ...arr1];
+    const restaurantList = [...arr, ...arr1];
+    restaurantList.forEach((res) => {
+      res.info.id = Math.floor(Math.random() * 10000000);
+    });
 
-    setListOfRestaurant(arr1);
-    setFilteredRestaurant(arr1);
+    setListOfRestaurant(restaurantList);
+    setFilteredRestaurant(restaurantList);
   };
 
   //Conditional Rendering
@@ -62,9 +65,9 @@ const Body = () => {
           className="filter-btn"
           onClick={() => {
             const filteredList = listOfRestaurant.filter(
-              (res) => res.info.avgRating > 4
+              (res) => res.info.avgRating > 4.5
             );
-            setListOfRestaurant(filteredList);
+            setFilteredRestaurant(filteredList);
           }}
         >
           Top Rated Restaurants
