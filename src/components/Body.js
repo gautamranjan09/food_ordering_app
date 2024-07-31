@@ -1,6 +1,8 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
@@ -12,22 +14,24 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
+    //const data = await fetch(
+    //   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    //  );
+    // const json = await data.json();
+    const response = await axios.get(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
-
-    const json = await data.json();
-    //console.log(json.data.cards);
+    // console.log(response,data);
     const arr =
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+      response?.data.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants ?? [];
     const arr1 =
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+      response?.data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants ?? [];
     const restaurantList = [...arr, ...arr1];
-    restaurantList.forEach((res) => {
-      res.info.id = Math.floor(Math.random() * 10000000);
-    });
+    // restaurantList.forEach((res) => {
+    //   res.info.id = Math.floor(Math.random() * 10000000);
+    // });
 
     setListOfRestaurant(restaurantList);
     setFilteredRestaurant(restaurantList);
@@ -65,7 +69,7 @@ const Body = () => {
           className="filter-btn"
           onClick={() => {
             const filteredList = listOfRestaurant.filter(
-              (res) => res.info.avgRating > 4.5
+              (res) => res.info.avgRating > 4
             );
             setFilteredRestaurant(filteredList);
           }}
@@ -75,7 +79,12 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestaurant.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+          <Link
+            to={"/restaurants/" + restaurant.info.id}
+            key={Math.floor(Math.random() * 10000000)}
+          >
+            <RestaurantCard resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>
